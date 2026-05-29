@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react";
+import { assetUrl } from "../../lib/assetUrl";
 
 export type ImageFrameVariant =
   | "project"
@@ -51,7 +52,8 @@ export function ImageFrame({
   objectFit = "cover",
 }: ImageFrameProps) {
   const [errored, setErrored] = useState(false);
-  const showImage = Boolean(src) && !errored;
+  const resolvedSrc = assetUrl(src);
+  const showImage = Boolean(resolvedSrc) && !errored;
   const style = variantStyles[variant];
 
   const isAutoRatio = ratio === "auto";
@@ -66,7 +68,7 @@ export function ImageFrame({
       <div className={`${containerClass} ${style.border} ${style.bg}`}>
         {showImage ? (
           <img
-            src={src ?? undefined}
+            src={resolvedSrc}
             alt={alt}
             loading="lazy"
             decoding="async"
