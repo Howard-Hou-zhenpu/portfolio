@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens for future use */
+:root {
+  --color-canvas: #faf8f4;
+  --color-canvas-soft: #f4f1eb;
+  --color-ink: #1f1d1a;
+  --color-ink-soft: #3a362f;
+  --color-muted: #7a736a;
+  --color-accent: #a65a3f;
+  --color-line: #e5dfd4;
+  --section-spacing: 6rem;
+}
+
+html,
+body,
+#root {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-feature-settings: "kern", "liga", "calt";
+  font-variant-ligatures: common-ligatures;
+}
+
+/* selection */
+::selection {
+  background-color: rgba(166, 90, 63, 0.18);
+  color: var(--color-ink);
+}
+
+/* anchor offset for sticky header */
+section[id] {
+  scroll-margin-top: 64px;
+}
+
+/* placeholder hint for future serif font swap */
+.font-serif {
+  font-feature-settings: "kern", "liga", "onum", "pnum";
+}
