@@ -62,12 +62,12 @@ export const methods: Method[] = [
     usedInZh: ["蛋鲜森"],
   },
   {
-    name: "Brand Strategy",
-    nameZh: "品牌策略",
+    name: "Product Positioning & GTM",
+    nameZh: "产品定位与 GTM",
     description:
-      "Market research, consumer insight, STP/4P strategy, and cultural brand building.",
+      "Market research, consumer insight, product narrative, launch positioning, and go-to-market thinking.",
     descriptionZh:
-      "市场调研、消费者洞察、STP/4P 策略和文化品牌构建。",
+      "市场研究、消费者洞察、产品价值表达、上市定位与进入市场策略。",
     usedIn: ["hotan-feast"],
     usedInZh: ["和田宴"],
   },

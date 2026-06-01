@@ -45,9 +45,9 @@ export const siteConfig: SiteConfig = {
     titleZh:
       "我从用户需求、市场信号与复杂决策中，\n构建 AI 产品。",
     subtitle:
-      "From consumer insight to AI product MVP, I explore how AI tools can turn scattered needs into structured, useful experiences.",
+      "I help teams turn user needs, market signals, and product value into usable AI products, clearer positioning, and scalable growth workflows.",
     subtitleZh:
-      "从消费者洞察到 AI 产品 MVP，我探索如何用 AI 工具把分散的需求转化为结构化、可用的产品体验。",
+      "我希望帮助团队把用户需求、市场信号和产品价值转化为可用的 AI 产品、清晰的市场定位与可规模化的增长工作流。",
     openingLine:
       "Somewhere between user insight, market strategy, and AI product building.",
     openingLineZh:
@@ -55,12 +55,12 @@ export const siteConfig: SiteConfig = {
     identityTags: [
       "AI Product Builder",
       "Global Growth Explorer",
-      "User Research Driven",
+      "Product Marketing Thinker",
     ],
     identityTagsZh: [
       "AI 产品构建者",
       "出海增长探索者",
-      "用户研究驱动",
+      "产品市场思考者",
     ],
     buttons: [
       { text: "View Projects", textZh: "查看项目", link: "#projects", variant: "primary" },
@@ -80,9 +80,9 @@ export const siteConfig: SiteConfig = {
   },
   contact: {
     ctaEn:
-      "I'm looking for opportunities in AI Product, AI Global Growth, and Product Operations. Let's talk.",
+      "I'm looking for opportunities in AI Product, Global Growth, and Product Marketing — especially with teams turning user needs, product value, and AI capabilities into real market outcomes.",
     ctaZh:
-      "我正在寻找 AI 产品、AI 出海增长和产品运营方向的机会，欢迎联系。",
+      "我正在寻找 AI 产品、出海增长和产品市场（PMM）方向的机会，尤其希望参与把用户需求、产品价值与 AI 能力转化为真实市场结果的团队。",
     email: "zhenpu_hou@foxmail.com",
     github: "https://github.com/howard-hou-zhenpu",
     resumeLink: "/resume/zhenpu-hou-resume.pdf",

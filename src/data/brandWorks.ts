@@ -39,7 +39,7 @@ export const brandWorks: BrandWork[] = [
     ],
     tier: "main",
     cardShort:
-      "Marketing & Brand Lead for Hotan Feast — a cultural dining brand rooted in Xinjiang cuisine and tourism. Designed market research, brand positioning, STP/4P strategy, and cultural experience.",
+      "Marketing & Brand Lead for Hotan Feast — a cultural dining brand rooted in Xinjiang cuisine and tourism. Designed market research, brand positioning, STP/4P strategy, cultural experience, and integrated marketing planning.",
     cover: "/images/projects/hotan-feast/brand-cover.png",
     coverAlt: "Hotan Feast local culture dining brand visual",
     visualType: "image",
@@ -60,7 +60,7 @@ export const brandWorks: BrandWork[] = [
     highlightZh:
       "完整的品牌策略，从市场调研到整合营销方案，把新疆美食与文化旅游连起来。",
     cardShortZh:
-      "和田宴 — 一个根植于新疆美食与文旅的文化餐饮品牌，担任市场与品牌负责人。完成市场调研、品牌定位、STP/4P 策略与文化体验设计。",
+      "和田宴 — 一个根植于新疆美食与文旅的文化餐饮品牌，担任市场与品牌负责人。完成市场调研、品牌定位、STP/4P 策略、文化体验设计与整合营销传播方案。",
   },
   {
     id: "taipo-jiafang",
