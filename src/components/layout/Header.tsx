@@ -37,52 +37,38 @@ export function Header() {
 
   useEffect(() => {
     if (!indexOpen) return;
-
-    function handleClickOutside(e: MouseEvent) {
-      if (
-        indexRef.current &&
-        !indexRef.current.contains(e.target as Node)
-      ) {
-        setIndexOpen(false);
-      }
-    }
     function handleEscape(e: KeyboardEvent) {
       if (e.key === "Escape") setIndexOpen(false);
     }
-
-    document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleEscape);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleEscape);
-    };
+    return () => document.removeEventListener("keydown", handleEscape);
   }, [indexOpen]);
 
   return (
     <header className="sticky top-0 z-50 bg-canvas/90 backdrop-blur-md border-b border-line-soft">
-      <div className="max-w-content mx-auto px-6 md:px-10 h-14 md:h-[3.75rem] flex items-center justify-between gap-4">
+      <div className="max-w-content mx-auto px-6 md:px-10 flex h-16 items-center justify-between">
         <a
           href="#top"
-          className="flex items-baseline gap-0 hover:opacity-80 transition-opacity shrink-0"
+          className="inline-flex items-center hover:opacity-80 transition-opacity shrink-0"
         >
-          <span className="font-serif text-[15px] md:text-base text-ink tracking-tightish">
+          <span className="font-serif text-[15px] md:text-base leading-none text-ink tracking-tightish">
             {siteConfig.name}
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-x-6 lg:gap-x-8">
+        <nav className="hidden md:flex items-center gap-8">
           {desktopNavKeys.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-[11.5px] text-muted hover:text-accent transition-colors font-sans tracking-wide"
+              className="inline-flex items-center h-8 text-[11.5px] leading-none text-muted hover:text-accent transition-colors font-sans tracking-wide"
             >
               {t(item.key)}
             </a>
           ))}
 
           <div
-            className="relative"
+            className="relative inline-flex items-center"
             ref={indexRef}
             onMouseEnter={() => setIndexOpen(true)}
             onMouseLeave={() => setIndexOpen(false)}
@@ -98,14 +84,14 @@ export function Header() {
               onClick={() => setIndexOpen((v) => !v)}
               aria-expanded={indexOpen}
               aria-haspopup="menu"
-              className="text-[11.5px] text-muted hover:text-accent transition-colors font-sans tracking-wide"
+              className="inline-flex items-center h-8 text-[11.5px] leading-none text-muted hover:text-accent transition-colors font-sans tracking-wide"
             >
               {indexLabel}
             </button>
             {indexOpen && (
               <div
                 role="menu"
-                className="absolute right-0 top-full pt-2 min-w-[180px]"
+                className="absolute right-0 top-full pt-2 min-w-[172px]"
               >
                 <div className="border border-line-soft bg-canvas/95 backdrop-blur-md rounded-sm shadow-sm py-1.5">
                   {indexItems.map((item) => (
@@ -114,12 +100,12 @@ export function Header() {
                       href={item.href}
                       role="menuitem"
                       onClick={() => setIndexOpen(false)}
-                      className="flex items-baseline gap-3 px-4 py-2 text-[12px] text-ink-soft hover:text-accent hover:bg-canvas-soft/40 transition-colors font-sans"
+                      className="flex items-baseline gap-3 px-4 py-2 text-[12px] text-ink-soft hover:text-accent hover:bg-canvas-soft/50 transition-colors font-sans"
                     >
                       <span className="font-mono text-[10px] tracking-widish text-muted">
                         {item.index}
                       </span>
-                      <span>{t(item.key)}</span>
+                      <span className="leading-none">{t(item.key)}</span>
                     </a>
                   ))}
                 </div>
@@ -127,11 +113,13 @@ export function Header() {
             )}
           </div>
 
+          <span className="w-px h-4 bg-ink/10" aria-hidden />
+
           <button
             type="button"
             onClick={toggleLang}
             aria-label={langButtonAria}
-            className="font-mono text-[10.5px] tracking-widish uppercase text-muted hover:text-accent transition-colors pl-3 border-l border-ink/15"
+            className="inline-flex items-center h-8 font-mono text-[10.5px] leading-none tracking-widish uppercase text-muted hover:text-accent transition-colors"
           >
             {langButtonLabel}
           </button>
@@ -142,7 +130,7 @@ export function Header() {
             type="button"
             onClick={toggleLang}
             aria-label={langButtonAria}
-            className="font-mono text-[11px] tracking-widish uppercase text-ink-soft hover:text-accent transition-colors"
+            className="inline-flex items-center h-9 font-mono text-[11px] tracking-widish uppercase text-ink-soft hover:text-accent transition-colors"
           >
             {langButtonLabel}
           </button>
@@ -152,9 +140,9 @@ export function Header() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center px-2 h-9 -mr-2 text-ink-soft hover:text-accent transition-colors"
+            className="inline-flex items-center justify-center h-9 px-2 -mr-2 text-ink-soft hover:text-accent transition-colors"
           >
-            <span className="font-mono text-[11px] tracking-widish uppercase">
+            <span className="font-mono text-[11px] leading-none tracking-widish uppercase">
               {open ? t("nav.close") : t("nav.menu")}
             </span>
           </button>
