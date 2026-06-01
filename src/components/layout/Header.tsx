@@ -33,7 +33,7 @@ export function Header() {
   const langButtonLabel = lang === "en" ? "中文" : "EN";
   const langButtonAria =
     lang === "en" ? "Switch to Chinese" : "Switch to English";
-  const indexLabel = lang === "zh" ? "目录" : "Index";
+  const indexLabel = lang === "zh" ? "目录" : "Sections";
 
   useEffect(() => {
     if (!indexOpen) return;
@@ -81,43 +81,48 @@ export function Header() {
             </a>
           ))}
 
-          <div className="relative" ref={indexRef}>
+          <div
+            className="relative"
+            ref={indexRef}
+            onMouseEnter={() => setIndexOpen(true)}
+            onMouseLeave={() => setIndexOpen(false)}
+            onFocus={() => setIndexOpen(true)}
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                setIndexOpen(false);
+              }
+            }}
+          >
             <button
               type="button"
               onClick={() => setIndexOpen((v) => !v)}
               aria-expanded={indexOpen}
               aria-haspopup="menu"
-              className="text-[11.5px] text-muted hover:text-accent transition-colors font-sans tracking-wide inline-flex items-center gap-1"
+              className="text-[11.5px] text-muted hover:text-accent transition-colors font-sans tracking-wide"
             >
-              <span>{indexLabel}</span>
-              <span
-                className={`text-[9px] transition-transform duration-200 ${
-                  indexOpen ? "rotate-180" : ""
-                }`}
-                aria-hidden
-              >
-                ▾
-              </span>
+              {indexLabel}
             </button>
             {indexOpen && (
               <div
                 role="menu"
-                className="absolute right-0 top-full mt-2 min-w-[180px] border border-line-soft bg-canvas/95 backdrop-blur-md rounded-sm shadow-sm py-1.5"
+                className="absolute right-0 top-full pt-2 min-w-[180px]"
               >
-                {indexItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    role="menuitem"
-                    onClick={() => setIndexOpen(false)}
-                    className="flex items-baseline gap-3 px-4 py-2 text-[12px] text-ink-soft hover:text-accent hover:bg-canvas-soft/40 transition-colors font-sans"
-                  >
-                    <span className="font-mono text-[10px] tracking-widish text-muted">
-                      {item.index}
-                    </span>
-                    <span>{t(item.key)}</span>
-                  </a>
-                ))}
+                <div className="border border-line-soft bg-canvas/95 backdrop-blur-md rounded-sm shadow-sm py-1.5">
+                  {indexItems.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      role="menuitem"
+                      onClick={() => setIndexOpen(false)}
+                      className="flex items-baseline gap-3 px-4 py-2 text-[12px] text-ink-soft hover:text-accent hover:bg-canvas-soft/40 transition-colors font-sans"
+                    >
+                      <span className="font-mono text-[10px] tracking-widish text-muted">
+                        {item.index}
+                      </span>
+                      <span>{t(item.key)}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
             )}
           </div>

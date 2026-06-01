@@ -12,7 +12,7 @@ export interface DictEntry {
 export const content = {
   // Navigation
   "nav.path": { en: "Path", zh: "成长路径" },
-  "nav.projects": { en: "Projects", zh: "精选项目" },
+  "nav.projects": { en: "Projects", zh: "项目" },
   "nav.toolkit": { en: "Toolkit", zh: "工具箱" },
   "nav.brandLab": { en: "Brand Lab", zh: "品牌实验室" },
   "nav.notes": { en: "Notes", zh: "思考笔记" },
