@@ -5,6 +5,7 @@ import { PathSection } from "./components/path/PathSection";
 import { ProjectSection } from "./components/projects/ProjectSection";
 import { ToolkitSection } from "./components/toolkit/ToolkitSection";
 import { BrandLabSection } from "./components/brand-lab/BrandLabSection";
+import { WhyGlobalGrowth } from "./components/why-global/WhyGlobalGrowth";
 import { NotesSection } from "./components/notes/NotesSection";
 import { Contact } from "./components/contact/Contact";
 
@@ -18,6 +19,7 @@ export default function App() {
         <ProjectSection />
         <ToolkitSection />
         <BrandLabSection />
+        <WhyGlobalGrowth />
         <NotesSection />
         <Contact />
       </main>
