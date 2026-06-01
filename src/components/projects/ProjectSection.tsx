@@ -3,10 +3,12 @@ import { SectionTitle } from "../ui/SectionTitle";
 import { ScrollReveal } from "../ui/ScrollReveal";
 import { projects } from "../../data/projects";
 import { ProjectCard } from "./ProjectCard";
+import { useLang } from "../../i18n/LangContext";
 
 const tierOrder = ["primary", "secondary", "tertiary", "research"] as const;
 
 export function ProjectSection() {
+  const { t } = useLang();
   const sortedProjects = [...projects].sort(
     (a, b) =>
       tierOrder.indexOf(a.tier as (typeof tierOrder)[number]) -
@@ -17,9 +19,9 @@ export function ProjectSection() {
     <Section id="projects" bg="soft">
       <SectionTitle
         index="02"
-        eyebrow="Selected Projects"
-        title="From a personal AI MVP to enterprise AI product practice."
-        description="Four projects across four registers — independent product building, enterprise AI product ops, AI content workflow, and mixed-method user research. Read in order, or skip to what you care about."
+        eyebrow={t("projects.eyebrow")}
+        title={t("projects.title")}
+        description={t("projects.description")}
       />
 
       <div className="space-y-10 md:space-y-14">

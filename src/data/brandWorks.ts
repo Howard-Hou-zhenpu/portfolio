@@ -17,6 +17,10 @@ export interface BrandWork {
   coverAlt?: string;
   gallery?: BrandGalleryItem[];
   visualType?: "image" | "placeholder" | "diagram";
+  award?: string;
+  roleZh?: string;
+  highlightZh?: string;
+  cardShortZh?: string;
 }
 
 export const brandWorks: BrandWork[] = [
@@ -51,6 +55,12 @@ export const brandWorks: BrandWork[] = [
         caption: "IP characters",
       },
     ],
+  
+    roleZh: "市场与品牌负责人",
+    highlightZh:
+      "完整的品牌策略，从市场调研到整合营销方案，把新疆美食与文化旅游连起来。",
+    cardShortZh:
+      "和田宴 — 一个根植于新疆美食与文旅的文化餐饮品牌，担任市场与品牌负责人。完成市场调研、品牌定位、STP/4P 策略与文化体验设计。",
   },
   {
     id: "taipo-jiafang",
@@ -63,6 +73,13 @@ export const brandWorks: BrandWork[] = [
     tier: "archive",
     cardShort:
       "Consumer behavior analysis, STP strategy, and 5P framework for a maternal & infant brand upgrade.",
+    award: "2024 商业精英挑战赛品牌策划竞赛 · 全国二等奖",
+  
+    roleZh: "品牌策略师",
+    highlightZh:
+      "面向母婴品牌升级的消费者行为分析、STP 策略与 5P 框架。",
+    cardShortZh:
+      "面向母婴品牌升级的消费者行为分析、STP 策略与 5P 框架。",
   },
   {
     id: "huizifang",
@@ -79,5 +96,12 @@ export const brandWorks: BrandWork[] = [
     tier: "archive",
     cardShort:
       "Brand resonance model, cultural storytelling, and experiential marketing for an Anhui cuisine brand.",
+    award: "2025 商业精英挑战赛品牌策划竞赛 · 全国二等奖",
+  
+    roleZh: "品牌策略师",
+    highlightZh:
+      "为徽菜品牌打造的品牌共鸣模型、文化叙事与体验式营销。",
+    cardShortZh:
+      "为徽菜品牌打造的品牌共鸣模型、文化叙事与体验式营销。",
   },
 ];

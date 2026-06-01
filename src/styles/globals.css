@@ -44,6 +44,13 @@ section[id] {
   scroll-margin-top: 64px;
 }
 
+/* Project / brand cards are inner anchor targets — give them a slightly
+   larger offset so the card title isn't tucked against the sticky header. */
+article[id^="project-"],
+article[id^="brand-"] {
+  scroll-margin-top: 88px;
+}
+
 /* placeholder hint for future serif font swap */
 .font-serif {
   font-feature-settings: "kern", "liga", "onum", "pnum";

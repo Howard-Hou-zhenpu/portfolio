@@ -3,8 +3,10 @@ import { SectionTitle } from "../ui/SectionTitle";
 import { ScrollReveal } from "../ui/ScrollReveal";
 import { brandWorks } from "../../data/brandWorks";
 import { BrandCard } from "./BrandCard";
+import { useLang } from "../../i18n/LangContext";
 
 export function BrandLabSection() {
+  const { t, lang } = useLang();
   const main = brandWorks.filter((w) => w.tier === "main");
   const archive = brandWorks.filter((w) => w.tier === "archive");
 
@@ -12,9 +14,9 @@ export function BrandLabSection() {
     <Section id="brand-lab" bg="soft">
       <SectionTitle
         index="04"
-        eyebrow="Brand & Strategy Foundation"
-        title="The work that taught me to read users and markets."
-        description="These projects aren't the main story — they're the foundation underneath it. Consumer insight, market research, and brand strategy gave me a way of thinking that I now bring into AI product work."
+        eyebrow={t("brand.eyebrow")}
+        title={t("brand.title")}
+        description={t("brand.description")}
       />
 
       <div className="space-y-10">
@@ -29,10 +31,10 @@ export function BrandLabSection() {
         <div className="mt-16 pt-10 border-t border-line">
           <div className="flex items-baseline gap-3 mb-8">
             <span className="font-mono text-[10px] tracking-widish text-muted uppercase">
-              More Strategy Works
+              {lang === "zh" ? "更多策略作品" : "More Strategy Works"}
             </span>
             <span className="font-serif italic text-sm text-muted">
-              Archive
+              {t("brand.archive")}
             </span>
             <span className="h-px flex-1 bg-line-soft" />
           </div>

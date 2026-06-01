@@ -3,15 +3,17 @@ import { SectionTitle } from "../ui/SectionTitle";
 import { ScrollReveal } from "../ui/ScrollReveal";
 import { notes } from "../../data/notes";
 import { NoteCard } from "./NoteCard";
+import { useLang } from "../../i18n/LangContext";
 
 export function NotesSection() {
+  const { t } = useLang();
   return (
     <Section id="notes" bg="canvas">
       <SectionTitle
         index="05"
-        eyebrow="Thinking Notes"
-        title="Short notes on AI products, vibe coding, and what I'm learning."
-        description="Open drafts. The full essays are still being written — these are the seeds."
+        eyebrow={t("notes.eyebrow")}
+        title={t("notes.title")}
+        description={t("notes.description")}
       />
 
       <ScrollReveal>

@@ -3,18 +3,19 @@ import { SectionTitle } from "../ui/SectionTitle";
 import { ScrollReveal } from "../ui/ScrollReveal";
 import { methods, tools } from "../../data/toolkit";
 import { ToolItem } from "./ToolItem";
+import { useLang } from "../../i18n/LangContext";
 
 export function ToolkitSection() {
+  const { t } = useLang();
   return (
     <Section id="toolkit" bg="canvas">
       <SectionTitle
         index="03"
-        eyebrow="AI Product Toolkit"
-        title="Methods I work with, tools I work in."
-        description="Two layers. The methods are how I think; the tools are what I touch every week. They map back to the projects above."
+        eyebrow={t("toolkit.eyebrow")}
+        title={t("toolkit.title")}
+        description={t("toolkit.description")}
       />
 
-      {/* 方法层: 视觉权重高 */}
       <ScrollReveal>
         <div className="mb-20">
           <div className="flex items-baseline gap-3 mb-6">
@@ -22,7 +23,7 @@ export function ToolkitSection() {
               Layer 01
             </span>
             <span className="font-serif italic text-base text-ink-soft">
-              Methods
+              {t("toolkit.methodsLabel")}
             </span>
             <span className="h-px flex-1 bg-line-soft" />
           </div>
@@ -34,7 +35,6 @@ export function ToolkitSection() {
         </div>
       </ScrollReveal>
 
-      {/* 工具层: 弱化视觉,做成紧凑 index 列表 */}
       <ScrollReveal delay={120}>
         <div>
           <div className="flex items-baseline gap-3 mb-5">
@@ -42,13 +42,13 @@ export function ToolkitSection() {
               Layer 02
             </span>
             <span className="font-serif italic text-base text-ink-soft">
-              Tools
+              {t("toolkit.toolsLabel")}
             </span>
             <span className="h-px flex-1 bg-line-soft" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 border-t border-line-soft">
-            {tools.map((t, i) => (
-              <ToolItem key={t.name} type="tool" data={t} index={i} />
+            {tools.map((tool, i) => (
+              <ToolItem key={tool.name} type="tool" data={tool} index={i} />
             ))}
           </div>
         </div>

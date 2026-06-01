@@ -1,6 +1,7 @@
 import type { BrandWork } from "../../data/brandWorks";
 import { Tag } from "../ui/Tag";
 import { ImageFrame } from "../ui/ImageFrame";
+import { useLang, pickLang } from "../../i18n/LangContext";
 
 interface BrandCardProps {
   work: BrandWork;
@@ -8,19 +9,22 @@ interface BrandCardProps {
 }
 
 export function BrandCard({ work, index }: BrandCardProps) {
+  const { lang, t } = useLang();
   const idx = String(index + 1).padStart(2, "0");
+  const role = pickLang(work.role, work.roleZh, lang);
+  const highlight = pickLang(work.highlight, work.highlightZh, lang);
+  const cardShort = pickLang(work.cardShort, work.cardShortZh, lang);
 
   if (work.tier === "main") {
     return (
-      <article className="bg-card border border-line p-7 md:p-9 rounded-sm hover:shadow-card-hover transition-shadow duration-500 ease-editorial">
+      <article id={`brand-${work.id}`} className="bg-card border border-line p-7 md:p-9 rounded-sm hover:shadow-card-hover transition-shadow duration-500 ease-editorial">
         <div className="flex items-center gap-3 mb-6">
           <span className="font-mono text-[10px] tracking-widish text-accent uppercase">
-            Lead Case · {idx}
+            {lang === "zh" ? `主案例 · ${idx}` : `Lead Case · ${idx}`}
           </span>
           <span className="h-px flex-1 bg-line-soft" />
         </div>
 
-        {/* Cover image: only renders when set; layout otherwise unchanged */}
         {work.cover && (
           <div className="mb-8">
             <ImageFrame
@@ -41,26 +45,25 @@ export function BrandCard({ work, index }: BrandCardProps) {
               {work.titleZh}
             </p>
 
-            {/* Role highlight */}
             <div className="mt-6 border-l-2 border-accent pl-4 py-1">
               <div className="font-mono text-[10px] tracking-widish text-accent uppercase mb-1">
-                Role
+                {t("brand.role")}
               </div>
               <div className="font-serif text-[15px] text-ink leading-snug">
-                {work.role}
+                {role}
               </div>
             </div>
           </div>
           <div className="md:col-span-7">
             <p className="text-[14px] text-ink-soft leading-relaxed">
-              {work.cardShort}
+              {cardShort}
             </p>
             <p className="mt-4 text-[13px] text-muted leading-relaxed">
-              {work.highlight}
+              {highlight}
             </p>
             <div className="mt-6 flex flex-wrap gap-x-2 gap-y-2">
-              {work.tags.map((t) => (
-                <Tag key={t}>{t}</Tag>
+              {work.tags.map((tag) => (
+                <Tag key={tag}>{tag}</Tag>
               ))}
             </div>
           </div>
@@ -69,15 +72,14 @@ export function BrandCard({ work, index }: BrandCardProps) {
     );
   }
 
-  // archive: 小卡片
   return (
-    <article className="border-t border-line-soft pt-6 hover:border-ink-soft transition-colors duration-300">
+    <article id={`brand-${work.id}`} className="border-t border-line-soft pt-6 hover:border-ink-soft transition-colors duration-300">
       <div className="flex items-baseline gap-3 mb-3">
         <span className="font-mono text-[10px] tracking-widish text-muted">
           A.{idx}
         </span>
         <span className="font-mono text-[10px] tracking-widish text-muted uppercase">
-          Archive
+          {t("brand.archive")}
         </span>
       </div>
       <h4 className="font-serif text-lg text-ink leading-tight tracking-tightish">
@@ -87,12 +89,23 @@ export function BrandCard({ work, index }: BrandCardProps) {
         {work.titleZh}
       </p>
       <p className="mt-3 text-[12.5px] text-ink-soft leading-relaxed">
-        {work.cardShort}
+        {cardShort}
       </p>
+      {work.award && (
+        <div className="mt-3 flex items-baseline gap-2.5">
+          <span className="font-mono text-[9.5px] tracking-widish text-muted uppercase shrink-0">
+            {t("project.award")}
+          </span>
+          <span className="text-muted">·</span>
+          <span className="text-[12px] text-accent leading-snug">
+            {work.award}
+          </span>
+        </div>
+      )}
       <div className="mt-4 flex flex-wrap gap-x-1.5 gap-y-1.5">
-        {work.tags.map((t) => (
-          <Tag key={t} variant="subtle">
-            {t}
+        {work.tags.map((tag) => (
+          <Tag key={tag} variant="subtle">
+            {tag}
           </Tag>
         ))}
       </div>

@@ -1,234 +1,288 @@
-# Image Guide
+# Image & Deploy Guide
 
-This document describes the image system for the portfolio, including directory structure, naming conventions, recommended sizes, and content guidelines.
+This file is the single source of truth for adding images to the portfolio
+and pushing the site to GitHub Pages.
+
+Live site: https://howard-hou-zhenpu.github.io/portfolio/
 
 ---
 
-## Directory Structure
+## 1. Where to Put Images
+
+All static images live under `public/`. Whatever you put under `public/` is
+copied verbatim into `dist/` at build time and served at the same path on
+GitHub Pages.
 
 ```
 public/
   images/
-    profile/          # Personal portrait or avatar
+    profile/                         Hero portrait
+    og/                              Open Graph / social share
+    notes/                           Thinking Notes board
     projects/
-      yaobai-zhi/
-      iflytek-smart-badge/
-      danxiansen/
-      gai-research/
-      hotan-feast/
-    notes/            # Future: Thinking Notes visuals
-    og/               # Open Graph / social share images
+      yaobai-zhi/                    Yaobai Zhi
+      iflytek-smart-badge/           iFLYTEK Smart Badge
+      danxiansen/                    Danxiansen
+      gai-research/                  GAI Research
+      hotan-feast/                   Hotan Feast (data lives in brandWorks.ts)
 ```
 
-Each project has its own subdirectory. Place cover images and gallery images inside the corresponding folder.
+Note: `hotan-feast` sits under `projects/` for historical reasons but its
+data is in `src/data/brandWorks.ts`, not `projects.ts`.
 
 ---
 
-## Naming Conventions
+## 2. Path Rule (very important)
 
-Use lowercase, hyphenated names:
+In source code and data files, always write paths starting from `/images/`:
 
-- `cover.png` — main project card cover
-- `dashboard.png`, `ai-analysis.png`, `review-center.png` — descriptive feature names
-- `flow-diagram.png`, `content-workflow.png` — abstract diagrams
-- `research-model.png`, `wordcloud.png`, `user-segments.png` — research visuals
+```
+/images/projects/yaobai-zhi/cover.png
+```
 
-Avoid:
-- Spaces in filenames
-- Version numbers (`cover-v2.png`)
-- Dates (`screenshot-2026-05-28.png`)
+Never hard-code `/portfolio/...`.
 
----
+`ImageFrame` calls `assetUrl()` from `src/lib/assetUrl.ts`, which prefixes
+the path with vite's `BASE_URL` at runtime:
 
-## Recommended Sizes
+- local dev → `/images/...`
+- GitHub Pages → `/portfolio/images/...`
+- future custom root domain → `/images/...`
 
-### Project Covers
-- **Dimensions**: 1600 × 1000 px (16:10 ratio)
-- **Format**: PNG or JPG
-- **Max file size**: 500 KB (optimize with tools like TinyPNG, Squoosh)
-
-### Gallery Images
-- **Large images**: 1600 × 900 px (16:9 ratio)
-- **Secondary images**: 1200 × 900 px (4:3 ratio)
-- **Format**: PNG or JPG
-- **Max file size**: 400 KB per image
-
-### Brand Images
-- **Dimensions**: 1200 × 900 px (4:3 ratio) or 1600 × 900 px (16:9)
-- **Format**: PNG or JPG
-- **Max file size**: 400 KB
-
-### Profile / Portrait
-- **Dimensions**: 1000 × 1250 px (4:5 ratio) or 1000 × 1000 px (1:1)
-- **Format**: PNG or JPG
-- **Max file size**: 300 KB
-
-### OG Images (Social Share)
-- **Dimensions**: 1200 × 630 px
-- **Format**: PNG or JPG
-- **Max file size**: 200 KB
+If you hard-code `/portfolio/...`, local dev breaks.
 
 ---
 
-## What to Include in Each Project
+## 3. Which File to Edit
 
-### 1. Yaobai Zhi / 摇摆志
+Each project's image fields live in one of these files:
 
-**Priority: HIGH** — This is the primary project.
+- Yaobai Zhi → `src/data/projects.ts`
+- iFLYTEK Smart Badge → `src/data/projects.ts`
+- Danxiansen → `src/data/projects.ts`
+- GAI Research → `src/data/projects.ts`
+- Hotan Feast → `src/data/brandWorks.ts`
+- Hero portrait → `src/data/siteConfig.ts`
 
-- `cover.png` — Product homepage or main visual (dashboard overview, hero section, or key feature)
-- `dashboard.png` — Dashboard with decision overview and recent activity
-- `ai-analysis.png` — AI option analysis screen or historical pattern recognition view
-- `review-center.png` — Review center showing past decisions and principle extraction
-- `personality-report.png` — Decision personality report
+The relevant fields on a project object:
 
-**Content guidelines:**
-- Use real product screenshots
-- Redact or anonymize any personal decision content from beta users
-- Avoid showing sensitive personal information (names, emails, private decision details)
-- If showing example decisions, use generic/demo data
-
----
-
-### 2. iFLYTEK Smart Badge / 科大讯飞智慧工牌
-
-**Priority: MEDIUM** — Secondary project, but **sensitive**.
-
-- `flow-diagram.png` — Abstract workflow diagram showing:
-  - Customer needs → Requirement analysis → Prompt & scoring rules → Model output evaluation → Feature launch → Feedback loop
-
-**Content guidelines:**
-- **DO NOT** use real internal system screenshots
-- **DO NOT** include customer names, recordings, transcripts, or quality inspection data
-- **DO NOT** show internal dashboards, admin panels, or proprietary UI
-- **ONLY** use abstract flow diagrams, conceptual illustrations, or sanitized mockups
-- If creating a diagram, use generic labels like "Sales Script Input", "AI Quality Score", "Golden Script Library"
+```ts
+cover: "/images/projects/xxx/cover.png",
+coverAlt: "Short English description for accessibility & SEO",
+visualType: "image",
+gallery: [
+  {
+    src: "/images/projects/xxx/screen-a.png",
+    alt: "...",
+    caption: "Short caption (uppercase mono looks best)"
+  }
+]
+```
 
 ---
 
-### 3. Danxiansen / 蛋鲜森
+## 4. Naming Conventions
 
-**Priority: MEDIUM** — Tertiary project, **sensitive**.
+Lowercase, hyphenated, English, descriptive. No spaces, no Chinese, no
+uppercase.
 
-- `content-workflow.png` — AI content production workflow diagram:
-  - Topic breakdown → Selling point extraction → AI-generated copy & visuals → Human review → Platform adaptation → A/B testing
-- `localization.png` — HK/Macau localization examples (public or redacted samples only)
+Suggested filenames:
 
-**Content guidelines:**
-- **DO NOT** use backend screenshots, order data, customer information, or unpublished materials
-- **DO NOT** show internal tools, dashboards, or proprietary workflows
-- **ONLY** use:
-  - Abstract workflow diagrams
-  - Public-facing content samples (e.g., published social media posts with customer info redacted)
-  - Mockups or sanitized examples
-- If showing localization examples, redact brand names, customer names, and any identifying information
+- `cover.png` — generic project cover
+- `brand-cover.png` — brand-led project (used by hotan-feast)
+- `dashboard.png` — main product screen
+- `ai-analysis.png` — feature screen
+- `review-center.png` — feature screen
+- `personality-report.png` — feature screen
+- `flow-diagram.png` — process / flow diagram
+- `content-workflow.png` — workflow diagram
+- `research-model.png` — research framework
+- `research-system-map.svg` — system diagram
+- `wordcloud.png` — word cloud
+- `user-segments.png` — segmentation chart
+- `localization.png` — localization sample
+- `restaurant-design.png` — brand space
+- `ip-characters.png` — IP / mascots
 
----
-
-### 4. GAI User Research
-
-**Priority: MEDIUM** — Research highlight.
-
-- `research-model.png` — Research framework, SEM model, or conceptual diagram
-- `wordcloud.png` — Word cloud from text mining (10,000+ comments)
-- `user-segments.png` — User segmentation chart (5 core + 4 potential segments)
-
-**Content guidelines:**
-- Use charts, diagrams, and visualizations from the research report
-- Redact any personally identifiable information from survey or interview data
-- Ensure visualizations are clear and readable at web resolution
-- If showing survey results, use aggregate data only (no individual responses)
+Never use spaces, Chinese, or uppercase letters in filenames. GitHub Pages
+runs on Linux and is case-sensitive — `Cover.png` referenced as `cover.png`
+will work locally on Windows but 404 on Pages.
 
 ---
 
-### 5. Hotan Feast / 和田宴
+## 5. Format & Size
 
-**Priority: MEDIUM** — Brand Lab lead case.
+Format choice:
 
-- `brand-cover.png` — Brand visual, restaurant exterior, or key brand element
-- `restaurant-design.png` — Interior design, dining experience, or cultural elements
-- `ip-characters.png` — IP characters or brand mascots
+- JPG — photos, product screenshots, brand photos, portraits. Smallest
+  files, no visible loss.
+- PNG — UI screenshots that need crisp text, or anything with transparency.
+- SVG — diagrams, system maps, anything you author yourself. Vector, scales
+  perfectly, tiny.
+- WebP — most aggressive photo compression (~25% smaller than JPG), but
+  awkward in macOS Preview / WeChat. Default to JPG unless you have a
+  reason.
 
-**Content guidelines:**
-- Use brand visuals, restaurant photos, or design mockups
-- Ensure you have permission to use any photos (especially if taken by others)
-- If showing customer-facing materials, ensure they are public or approved for portfolio use
+Cover sizing:
 
----
+- Pixel width: 1600 px is plenty.
+- File size: aim for under 300 KB, ideally under 200 KB.
+- Aspect ratios actually used by `ProjectCard.tsx`:
+  - Primary tier (Yaobai Zhi): 16/10
+  - Secondary tier (iFLYTEK): 4/3
+  - Tertiary tier (Danxiansen): 4/3
+  - Research tier (GAI Research): auto + contain (full image is preserved)
+  - Brand main (Hotan Feast): 16/9
 
-## What NOT to Include
+Pre-rendering at the right ratio (1600×1000 / 1600×1200 / 1600×900) avoids
+`object-cover` cropping anything important.
 
-**Never include:**
+Compression tools:
 
-1. **Internal system screenshots** — Backend dashboards, admin panels, internal tools
-2. **Customer data** — Names, phone numbers, emails, addresses, order details
-3. **Proprietary information** — Trade secrets, internal metrics, confidential strategies
-4. **Recordings or transcripts** — Sales calls, service recordings, customer conversations
-5. **Unpublished materials** — Draft designs, internal documents, unreleased features
-6. **Personal information** — Other people's decision logs, beta user data, private messages
-7. **Sensitive business data** — Revenue, profit margins, customer acquisition costs (unless public)
-
-**When in doubt:**
-- Use abstract diagrams instead of real screenshots
-- Redact identifying information
-- Create mockups or sanitized examples
-- Ask for permission before using any materials
-
----
-
-## First Batch: Top 5 Images to Prepare
-
-If you can only prepare **5 images** right now, prioritize these:
-
-1. **`/images/projects/yaobai-zhi/cover.png`** — Yaobai Zhi product homepage or dashboard
-2. **`/images/projects/yaobai-zhi/ai-analysis.png`** — AI option analysis or historical pattern view
-3. **`/images/projects/yaobai-zhi/review-center.png`** — Review center showing past decisions
-4. **`/images/projects/gai-research/research-model.png`** — Research framework or SEM model
-5. **`/images/projects/hotan-feast/brand-cover.png`** — Hotan Feast brand visual or restaurant photo
-
-**Why these 5?**
-- Yaobai Zhi is the primary project and needs the most visual support
-- GAI Research and Hotan Feast are the next most important cases
-- iFLYTEK and Danxiansen can use abstract diagrams (lower priority for real images)
+- TinyPNG (https://tinypng.com) — drag-and-drop, lossless to the eye, works
+  for PNG/JPG/WebP.
+- SVGOMG (https://svgomg.net) — clean up SVGs.
 
 ---
 
-## How to Add Images
+## 6. GitHub Pages Subpath Pitfalls
 
-1. **Place images in the correct directory** (e.g., `public/images/projects/yaobai-zhi/cover.png`)
-2. **Verify the path matches the data** — Check `src/data/projects.ts` or `src/data/brandWorks.ts` to ensure the `cover` field points to the correct path
-3. **Test locally** — Run `npm run dev` and verify images load correctly
-4. **Optimize file size** — Use TinyPNG, Squoosh, or ImageOptim to compress images before adding them
-5. **Commit and push** — Add images to git and push to your repository
+The site is served at `/portfolio/`. A few things to avoid:
 
----
-
-## Fallback Behavior
-
-If an image is missing or fails to load:
-- **Project cards** — Fall back to the editorial placeholder (geometric design with project title and tags)
-- **Hero** — Falls back to the meta card (text-based info card)
-- **Brand cards** — Falls back to text-only layout
-
-This ensures the site remains functional and visually coherent even without images.
+1. Always write `/images/...` in code. Never hard-code `/portfolio/...`.
+   `assetUrl()` handles the prefix.
+2. CSS `url(/images/...)` will not be rewritten by vite. If you really need
+   an image from CSS, either use a relative path that vite can bundle
+   (`url('../assets/foo.png')`), or set the image inline via `assetUrl()`
+   in JSX.
+3. Filenames are case-sensitive on Pages. Keep filename and code identical.
+4. Adding an image does not auto-deploy. You must run `npm run deploy` (see
+   below).
+5. Browsers cache aggressively. After deploy, hard-refresh
+   (Ctrl+Shift+R) if you still see the old image.
 
 ---
 
-## Future Enhancements
+## 7. Adding a New Image — Worked Example
 
-- **OG images** — Add social share images for better link previews
-- **Profile portrait** — Add a personal photo to the Hero section
-- **Notes visuals** — Add cover images for Thinking Notes entries
-- **Project detail pages** — Use the `gallery` field to show multiple images per project
+Goal: add a cover for Yaobai Zhi.
+
+Step 1. Drop the file at the expected path:
+
+```
+public/images/projects/yaobai-zhi/cover.png
+```
+
+Step 2. Confirm `src/data/projects.ts` already references it:
+
+```ts
+cover: "/images/projects/yaobai-zhi/cover.png",
+coverAlt: "Yaobai Zhi AI decision coach product interface",
+visualType: "image",
+```
+
+Step 3. Preview locally:
+
+```bash
+cd /d/workspace/portfolio
+npm run dev
+```
+
+Open http://localhost:5173 and check the project card.
+
+Step 4. Commit the source side yourself (whenever you're ready):
+
+```bash
+git add public/images/projects/yaobai-zhi/cover.png src/data/projects.ts
+git commit -m "Add Yaobai Zhi cover image"
+git push origin main
+```
+
+Step 5. Deploy to Pages:
+
+```bash
+npm run deploy
+```
+
+That's it. Live in ~30 seconds.
 
 ---
 
-## Questions?
+## 8. Deploy Script — What `npm run deploy` Does
 
-If you're unsure whether an image is safe to use, err on the side of caution:
-- Use abstract diagrams instead of real screenshots
-- Redact identifying information
-- Create mockups or sanitized examples
-- Ask for permission before using any materials
+The script is `scripts/deploy.mjs`. It does exactly three things:
 
-**Remember:** This portfolio is public. Only include images you're comfortable sharing with potential employers, colleagues, and the broader internet.
+1. Runs `npm run build` with `GITHUB_PAGES=true` so vite emits the
+   `/portfolio/` base path.
+2. Copies `dist/index.html` to `dist/404.html` (SPA fallback so deep links
+   don't 404 on Pages).
+3. `git add -A`, `git commit`, `git push origin gh-pages` from inside
+   `dist/`.
+
+It deliberately does NOT touch `main`. You commit and push your source
+changes manually so you stay in control of what's on `main`.
+
+The script is plain Node (`node scripts/deploy.mjs`) so it works the same
+on Windows Git Bash, PowerShell, and macOS/Linux without `cp`, `cross-env`,
+or shell-specific tricks.
+
+First-time setup (only once, already done on this machine):
+
+```bash
+cd dist
+git init -b gh-pages
+git remote add origin https://github.com/Howard-Hou-zhenpu/portfolio.git
+```
+
+If `dist/.git` is ever wiped, the script tells you to re-run those three
+commands.
+
+---
+
+## 9. Full Update Workflow
+
+Whenever you want to update the live site:
+
+```bash
+# 1. Edit code or drop new images.
+# 2. Preview locally.
+npm run dev
+
+# 3. Commit source changes to main yourself.
+git add <files>
+git commit -m "..."
+git push origin main
+
+# 4. Deploy.
+npm run deploy
+```
+
+Wait ~30 seconds, hard-refresh
+https://howard-hou-zhenpu.github.io/portfolio/, done.
+
+---
+
+## 10. Fallback Behavior
+
+If an image is missing or fails to load, the UI degrades gracefully:
+
+- Project cards → editorial placeholder visual (geometric, with title/tags)
+- Hero → text-based meta card
+- Brand cards → text-only layout
+
+So an unfinished image pipeline never breaks the site.
+
+---
+
+## 11. Content Safety Reminders
+
+This portfolio is public. Before adding any image:
+
+- No internal dashboards, admin panels, or proprietary UI.
+- No customer data (names, phones, emails, orders, recordings).
+- No unpublished designs or confidential strategy.
+- For iFLYTEK and Danxiansen specifically: prefer abstract diagrams over
+  real screenshots; redact anything identifying.
+- For Yaobai Zhi: anonymize beta-user decision content.
+- For GAI Research: aggregate visuals only; no individual respondents.
+- When in doubt, mock it up or redact.
