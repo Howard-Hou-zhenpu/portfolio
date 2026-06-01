@@ -12,6 +12,7 @@ export function NoteCard({ note, index }: NoteCardProps) {
   const { lang, t } = useLang();
   const idx = String(index + 1).padStart(2, "0");
   const [expanded, setExpanded] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const title = pickLang(note.title, note.titleZh, lang);
   const summary = pickLang(note.summary, note.summaryZh, lang);
   const reflection = pickLang(note.reflection, note.reflectionZh, lang);
@@ -19,8 +20,14 @@ export function NoteCard({ note, index }: NoteCardProps) {
     .split("\n\n")
     .filter((p) => p.trim().length > 0);
 
+  const showReflection = expanded || hovered;
+
   return (
-    <article className="border-t border-line pt-7 group">
+    <article
+      className="border-t border-line pt-7 group"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       <div className="flex items-baseline justify-between mb-4">
         <span className="font-mono text-[10px] tracking-widish text-muted">
           N.{idx}
@@ -38,11 +45,15 @@ export function NoteCard({ note, index }: NoteCardProps) {
         {summary}
       </p>
 
-      {expanded && (
-        <div
-          id={`reflection-${note.id}`}
-          className="mt-5 pt-5 border-t border-line-soft space-y-3"
-        >
+      <div
+        id={`reflection-${note.id}`}
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          showReflection
+            ? "max-h-[800px] opacity-100 mt-5 pt-5 border-t border-line-soft"
+            : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="space-y-3">
           {reflectionParagraphs.map((para, i) => (
             <p
               key={i}
@@ -52,7 +63,7 @@ export function NoteCard({ note, index }: NoteCardProps) {
             </p>
           ))}
         </div>
-      )}
+      </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
         <div className="flex flex-wrap gap-x-2 gap-y-2">
@@ -65,9 +76,9 @@ export function NoteCard({ note, index }: NoteCardProps) {
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          aria-expanded={expanded}
+          aria-expanded={showReflection}
           aria-controls={`reflection-${note.id}`}
-          className="font-mono text-[10px] tracking-widish text-ink-soft hover:text-accent transition-colors uppercase border-b border-line hover:border-accent pb-0.5"
+          className="lg:hidden font-mono text-[10px] tracking-widish text-ink-soft hover:text-accent transition-colors uppercase border-b border-line hover:border-accent pb-0.5"
         >
           {expanded ? t("notes.collapse") : t("notes.readReflection")}
         </button>
