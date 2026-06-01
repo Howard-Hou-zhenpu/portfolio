@@ -42,7 +42,7 @@ export function Hero() {
             {heroOpeningLine}
           </p>
 
-          <h1 className="font-serif text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.05] tracking-tightish text-ink max-w-[18ch]">
+          <h1 className="font-serif text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.05] tracking-tightish text-ink max-w-[18ch] zh-prewrap">
             {heroTitle}
           </h1>
 

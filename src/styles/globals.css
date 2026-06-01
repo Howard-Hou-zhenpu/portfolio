@@ -55,3 +55,100 @@ article[id^="brand-"] {
 .font-serif {
   font-feature-settings: "kern", "liga", "onum", "pnum";
 }
+
+/* ============================================================
+   Chinese mode typography
+   ============================================================
+   LangContext sets document.documentElement.lang = "zh-CN" on toggle.
+   These rules apply ONLY to Chinese mode and leave English untouched.
+*/
+
+html[lang="zh-CN"] body,
+html[lang="zh-CN"] #root {
+  font-family:
+    "PingFang SC",
+    "Noto Sans SC",
+    "Microsoft YaHei",
+    "Hiragino Sans GB",
+    Inter,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  /* Slightly looser default tracking helps CJK breathe. */
+  letter-spacing: 0;
+}
+
+/* Use the same modern sans stack for serif headings in zh — Playfair/Lora
+   has no Chinese glyphs, so they fall back to UA serif which feels heavy
+   and dated. A clean modern sans reads more like a contemporary Chinese
+   product portfolio. */
+html[lang="zh-CN"] .font-serif {
+  font-family:
+    "PingFang SC",
+    "Noto Sans SC",
+    "Microsoft YaHei",
+    "Hiragino Sans GB",
+    Inter,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  font-feature-settings: normal;
+}
+
+/* Hero H1 — bring it down ~18% on desktop, lighten weight, looser leading.
+   English Hero h1 uses text-[2.25rem]/sm:text-5xl/md:text-6xl/lg:text-[4.25rem].
+   Chinese version below scales these down. */
+html[lang="zh-CN"] h1.font-serif {
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.18;
+  font-size: 1.875rem; /* base ~30px */
+}
+@media (min-width: 640px) {
+  html[lang="zh-CN"] h1.font-serif {
+    font-size: 2.25rem; /* sm ~36px */
+  }
+}
+@media (min-width: 768px) {
+  html[lang="zh-CN"] h1.font-serif {
+    font-size: 2.625rem; /* md ~42px */
+  }
+}
+@media (min-width: 1024px) {
+  html[lang="zh-CN"] h1.font-serif {
+    font-size: 3.25rem; /* lg ~52px */
+    line-height: 1.15;
+  }
+}
+
+/* Section titles (H2 are rendered via SectionTitle as font-serif h2). */
+html[lang="zh-CN"] h2.font-serif {
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+/* Project / brand / note card titles (h3/h4 with font-serif). */
+html[lang="zh-CN"] h3.font-serif,
+html[lang="zh-CN"] h4.font-serif {
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+/* Body paragraphs — looser leading for CJK readability. */
+html[lang="zh-CN"] p {
+  line-height: 1.8;
+}
+
+/* Italic Chinese reads poorly in most webfonts; flatten to upright. */
+html[lang="zh-CN"] .italic,
+html[lang="zh-CN"] em,
+html[lang="zh-CN"] i {
+  font-style: normal;
+}
+
+/* Chinese typography override — `\n` in titleZh becomes a real line break. */
+html[lang="zh-CN"] .zh-prewrap {
+  white-space: pre-line;
+}

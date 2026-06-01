@@ -43,7 +43,7 @@ export const siteConfig: SiteConfig = {
     title:
       "I build AI products from user needs, market signals, and messy decisions.",
     titleZh:
-      "我从用户需求、市场信号和复杂决策中构建 AI 产品。",
+      "我从用户需求、市场信号与复杂决策中，\n构建 AI 产品。",
     subtitle:
       "From consumer insight to AI product MVP, I explore how AI tools can turn scattered needs into structured, useful experiences.",
     subtitleZh:
