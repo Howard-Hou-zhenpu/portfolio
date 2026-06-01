@@ -27,54 +27,50 @@ export function Contact() {
               {ctaPrimary}
             </p>
 
-            <div className="mt-10 flex flex-col gap-y-6 max-w-md">
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+            <div className="mt-10 flex flex-wrap md:flex-nowrap items-center gap-x-6 gap-y-4">
+              <a
+                href={`mailto:${contact.email}`}
+                className="group inline-flex items-center gap-2 border border-ink-soft text-ink hover:border-ink hover:bg-ink hover:text-canvas transition-colors duration-300 px-5 py-2.5 text-[12px] tracking-widish uppercase font-sans rounded-sm whitespace-nowrap"
+              >
+                <span>{t("contact.emailMe")}</span>
+                <span className="transition-transform group-hover:translate-x-0.5">
+                  →
+                </span>
+              </a>
+
+              {contact.demoLink && (
                 <a
-                  href={`mailto:${contact.email}`}
-                  className="group inline-flex items-center gap-2 border border-ink-soft text-ink hover:border-ink hover:bg-ink hover:text-canvas transition-colors duration-300 px-5 py-2.5 text-[12px] tracking-widish uppercase font-sans rounded-sm"
+                  href={contact.demoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 text-[12px] tracking-widish uppercase text-ink-soft hover:text-accent transition-colors font-sans border-b border-line hover:border-accent pb-1 whitespace-nowrap"
                 >
-                  <span>{t("contact.emailMe")}</span>
+                  <span>{t("contact.tryLiveDemo")}</span>
                   <span className="transition-transform group-hover:translate-x-0.5">
-                    →
+                    ↗
                   </span>
                 </a>
+              )}
 
-                {contact.demoLink && (
-                  <a
-                    href={contact.demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 text-[12px] tracking-widish uppercase text-ink-soft hover:text-accent transition-colors font-sans border-b border-line hover:border-accent pb-1"
-                  >
-                    <span>{t("contact.tryLiveDemo")}</span>
-                    <span className="transition-transform group-hover:translate-x-0.5">
-                      ↗
-                    </span>
-                  </a>
-                )}
-              </div>
-
-              <div className="flex flex-col items-start gap-1.5">
-                {hasResume ? (
-                  <a
-                    href={resumeHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 text-[12px] tracking-widish uppercase text-ink-soft hover:text-accent transition-colors font-sans border-b border-line hover:border-accent pb-1"
-                  >
-                    <span>{t("contact.downloadResume")}</span>
-                    <span>↗</span>
-                  </a>
-                ) : (
-                  <span
-                    className="inline-flex items-center gap-2 text-[12px] tracking-widish uppercase text-muted-soft font-sans border-b border-line-soft pb-1 cursor-not-allowed"
-                    aria-disabled="true"
-                  >
-                    <span>{t("contact.downloadResume")}</span>
-                    <span>↗</span>
-                  </span>
-                )}
-              </div>
+              {hasResume ? (
+                <a
+                  href={resumeHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 text-[12px] tracking-widish uppercase text-ink-soft hover:text-accent transition-colors font-sans border-b border-line hover:border-accent pb-1 whitespace-nowrap"
+                >
+                  <span>{t("contact.downloadResume")}</span>
+                  <span>↗</span>
+                </a>
+              ) : (
+                <span
+                  className="inline-flex items-center gap-2 text-[12px] tracking-widish uppercase text-muted-soft font-sans border-b border-line-soft pb-1 cursor-not-allowed whitespace-nowrap"
+                  aria-disabled="true"
+                >
+                  <span>{t("contact.downloadResume")}</span>
+                  <span>↗</span>
+                </span>
+              )}
             </div>
           </div>
 
