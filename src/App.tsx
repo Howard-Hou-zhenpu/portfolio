@@ -1,6 +1,5 @@
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
-import { SectionRail } from "./components/layout/SectionRail";
 import { Hero } from "./components/hero/Hero";
 import { PathSection } from "./components/path/PathSection";
 import { ProjectSection } from "./components/projects/ProjectSection";
@@ -13,7 +12,6 @@ export default function App() {
   return (
     <div className="min-h-screen bg-canvas text-ink antialiased">
       <Header />
-      <SectionRail />
       <main>
         <Hero />
         <PathSection />
