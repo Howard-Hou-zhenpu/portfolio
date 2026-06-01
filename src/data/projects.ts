@@ -36,6 +36,8 @@ export interface Project {
   gallery?: ProjectGalleryItem[];
   visualType?: "image" | "placeholder" | "diagram";
   award?: string;
+  businessValue?: string;
+  businessValueZh?: string;
   subtitleZh?: string;
   storyZh?: string;
   roleZh?: string;
@@ -57,6 +59,10 @@ export const projects: Project[] = [
       "I built Yaobai Zhi to help myself and friends make better decisions. It supports quick logging, deep analysis, AI option comparison, historical pattern recognition, reflective questioning, decision personality reports, and personal principle accumulation. Deployed live, with 80 personal records, 20 beta users, and 3 iterations.",
     role:
       "Solo builder — product design, prompt engineering, full-stack development, deployment.",
+    businessValue:
+      "Validated an AI coaching MVP for complex personal decisions through real usage records, early testers, and iterative feedback.",
+    businessValueZh:
+      "通过真实决策记录、早期测试用户和持续反馈，验证了一个面向复杂个人决策场景的 AI coaching 产品原型。",
     highlightsLabel: "What I Built",
     highlights: [
       "Quick decision logging and deep decision mode",
@@ -68,9 +74,9 @@ export const projects: Project[] = [
       "Deployed on Cloudflare Workers with Supabase backend",
     ],
     metrics: [
-      "80+ real decision samples",
-      "20+ seed users",
-      "3 product iterations",
+      "80+ decision logs from personal use and early testing",
+      "20+ early testers from friends, classmates, and extended networks",
+      "3 iterations based on feedback and usage friction",
     ],
     tags: ["AI Product", "Vibe Coding", "0-to-1 MVP", "Decision Intelligence"],
     techStack: [
@@ -133,9 +139,9 @@ export const projects: Project[] = [
       "Cloudflare Workers 部署，Supabase 作为后端",
     ],
     metricsZh: [
-      "80+ 条真实决策样本",
-      "20+ 位种子用户",
-      "3 次产品迭代",
+      "80+ 条决策记录，来自个人长期使用与早期测试",
+      "20+ 位早期测试者，来自朋友、同学与扩展人脉",
+      "3 次基于反馈与使用阻力的产品迭代",
     ],
     cardShortZh:
       "个人 AI 决策教练，用 vibe coding 从 0 到 1 搭建。80 条记录，20 位用户，3 次迭代。",
@@ -152,6 +158,10 @@ export const projects: Project[] = [
       "I joined iFLYTEK's Consumer BG AI Marketing team as an AI Product Assistant, working on Smart Badge for frontline automotive sales teams. Participated in the full product cycle: customer needs analysis, prompt design for quality inspection, model output annotation, and the launch of the 'Golden Script' feature.",
     role:
       "AI Product Assistant — customer needs analysis, prompt engineering, model output evaluation, feature design.",
+    businessValue:
+      "Helped turn top-performing sales recordings into reusable scripts while supporting AI quality inspection and service improvement.",
+    businessValueZh:
+      "支持销售团队将优秀录音中的经验沉淀为可复用话术，并辅助 AI 质检与服务质量提升。",
     highlightsLabel: "What I Worked On",
     highlights: [
       "Customer needs interviews and requirement documentation",
@@ -230,6 +240,10 @@ export const projects: Project[] = [
       "I built an AI content workflow that cut single-platform material production from 4h to 30min, producing 500+ assets per month and supporting simultaneous content updates for 3 brands. Focused on HK/Macau localization, A/B testing, and content optimization for cross-border growth.",
     role:
       "Cross-border operations assistant — workflow design, content production, localization, growth.",
+    businessValue:
+      "Reduced content production time from 4 hours to 30 minutes and supported scalable cross-border content operations across multiple brands.",
+    businessValueZh:
+      "将单次内容生产从 4 小时压缩到 30 分钟，支持多个品牌的跨境内容规模化生产。",
     highlightsLabel: "Workflow",
     highlights: [
       "Topic breakdown and selling point extraction",
@@ -242,7 +256,7 @@ export const projects: Project[] = [
       "4h → 30min per cycle",
       "500+ assets / month",
       "3 brands supported",
-      "5% sales lift",
+      "Sales performance improved by around 5% during the optimization period",
     ],
     tags: [
       "AI Content Workflow",
@@ -291,7 +305,7 @@ export const projects: Project[] = [
       "4h → 30min 单次生产",
       "500+ 素材 / 月",
       "3 个品牌支持",
-      "5% 销量提升",
+      "优化周期内相关产品销售表现提升约 5%",
     ],
     cardShortZh:
       "面向跨境电商的 AI 内容生产工作流，将单次内容生产从 4 小时压缩到 30 分钟，支持 3 个品牌，月产 500+ 素材，并带来 5% 销量提升。",
@@ -310,6 +324,10 @@ export const projects: Project[] = [
       "What drives or hinders young users' adoption of GAI tools? This research won the National First Prize in the National Market Research and Analysis Competition by combining text mining, surveys, interviews, and structural equation modeling to map user segments and adoption drivers.",
     role:
       "Lead researcher — research design, data collection, analysis, report writing.",
+    businessValue:
+      "Identified GAI user segments, adoption drivers, and market opportunities to inform product positioning and market strategy.",
+    businessValueZh:
+      "识别 GAI 用户分群、采用驱动因素和潜在市场机会，为产品定位与市场策略提供依据。",
     highlightsLabel: "Methods",
     highlights: [
       "Python-based collection of 10,000+ user comments",

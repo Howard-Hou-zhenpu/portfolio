@@ -60,6 +60,7 @@ export const content = {
     zh: "每个项目是同一个问题的不同切面——如何构建真正贴合人类需求的 AI 工具。",
   },
   "project.role": { en: "Role", zh: "我的角色" },
+  "project.businessValue": { en: "Business Value", zh: "业务价值" },
   "project.keyMetrics": { en: "Key Metrics", zh: "关键指标" },
   "project.tags": { en: "Tags", zh: "标签" },
   "project.techStack": { en: "Tech Stack", zh: "技术栈" },

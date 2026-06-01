@@ -70,6 +70,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   const subtitle = pickLang(project.subtitle, project.subtitleZh, lang);
   const story = pickLang(project.story, project.storyZh, lang);
   const role = pickLang(project.role, project.roleZh, lang);
+  const businessValue = project.businessValue
+    ? pickLang(project.businessValue, project.businessValueZh, lang)
+    : null;
   const cardShort = pickLang(project.cardShort, project.cardShortZh, lang);
   const highlightsLabel = pickLang(
     project.highlightsLabel,
@@ -128,6 +131,15 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 {role}
               </div>
             </div>
+
+            {businessValue && (
+              <div className="mt-6">
+                <FieldLabel>{t("project.businessValue")}</FieldLabel>
+                <div className="text-[13.5px] text-ink-soft leading-relaxed">
+                  {businessValue}
+                </div>
+              </div>
+            )}
 
             {project.link && (
               <div className="mt-8">
@@ -231,6 +243,15 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               </p>
             </div>
 
+            {businessValue && (
+              <div className="mt-6">
+                <FieldLabel>{t("project.businessValue")}</FieldLabel>
+                <p className="text-[13px] text-ink-soft leading-relaxed">
+                  {businessValue}
+                </p>
+              </div>
+            )}
+
             <div className="mt-6">
               <FieldLabel>{highlightsLabel}</FieldLabel>
               <ul className="list-none text-[13px] text-ink-soft space-y-2.5">
@@ -296,6 +317,15 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <p className="mt-4 text-[13px] text-ink-soft leading-relaxed">
               {cardShort}
             </p>
+
+            {businessValue && (
+              <div className="mt-5">
+                <FieldLabel>{t("project.businessValue")}</FieldLabel>
+                <p className="text-[13px] text-ink-soft leading-relaxed">
+                  {businessValue}
+                </p>
+              </div>
+            )}
 
             <div className="mt-5">
               <FieldLabel>{t("project.keyMetrics")}</FieldLabel>
@@ -371,6 +401,15 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <p className="mt-5 text-[13.5px] text-ink-soft leading-relaxed max-w-prose">
               {story}
             </p>
+
+            {businessValue && (
+              <div className="mt-6">
+                <FieldLabel>{t("project.businessValue")}</FieldLabel>
+                <p className="text-[13px] text-ink-soft leading-relaxed max-w-prose">
+                  {businessValue}
+                </p>
+              </div>
+            )}
 
             <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6">
               <div>
