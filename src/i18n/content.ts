@@ -44,7 +44,7 @@ export const content = {
   },
   "path.description": {
     en: "Five stages — from consumer insight and brand strategy to AI product practice and 0-to-1 building.",
-    zh: "五个阶段——从消费者洞察和品牌策略，走向 AI 产品实践与从 0 到 1 的搭建。",
+    zh: "五个阶段——从消费者洞察和品牌策略出发，逐步走向 AI 产品实践与 0 到 1 搭建。",
   },
   "path.stage": { en: "Stage", zh: "Stage" },
   "path.relatedProjectArrow": { en: "↓", zh: "↓" },
@@ -68,8 +68,8 @@ export const content = {
   "project.whatIBuilt": { en: "What I Built", zh: "我做了什么" },
   "project.whatIWorkedOn": { en: "What I Worked On", zh: "我参与的工作" },
   "project.tierPrimary": { en: "Hero Project", zh: "主项目" },
-  "project.tierSecondary": { en: "Selected · 02", zh: "Selected · 02" },
-  "project.tierTertiary": { en: "Selected · 03", zh: "Selected · 03" },
+  "project.tierSecondary": { en: "Selected · 02", zh: "精选 · 02" },
+  "project.tierTertiary": { en: "Selected · 03", zh: "精选 · 03" },
   "project.tierResearch": { en: "Research Highlight", zh: "研究亮点" },
   "project.tierBrand": { en: "Brand Work", zh: "品牌作品" },
   "project.tierArchive": { en: "Archive", zh: "归档" },
@@ -85,17 +85,17 @@ export const content = {
   },
   "toolkit.description": {
     en: "Not every tool needs a master — but every method needs a reason.",
-    zh: "工具未必都要精通，但每个方法都该有它的用处。",
+    zh: "方法决定我如何理解问题，工具帮助我把想法转化为可验证的产品与结果。",
   },
   "toolkit.methodsLabel": { en: "Methods", zh: "方法" },
   "toolkit.toolsLabel": { en: "Tools", zh: "工具" },
-  "toolkit.usedIn": { en: "Used in", zh: "用于" },
+  "toolkit.usedIn": { en: "Used in", zh: "应用于" },
 
   // Brand Lab
   "brand.eyebrow": { en: "Brand & Strategy Foundation", zh: "品牌与策略基础" },
   "brand.title": {
     en: "Where my brand thinking comes from.",
-    zh: "我的品牌思维从何而来。",
+    zh: "品牌策略，是我理解用户与市场的起点。",
   },
   "brand.description": {
     en: "Before AI, I worked on brand strategy and consumer research. These cases shaped how I read users, markets, and culture.",
@@ -113,7 +113,7 @@ export const content = {
   },
   "notes.description": {
     en: "Small reflections from building, researching, and learning with AI products.",
-    zh: "在用 AI 产品做事、做研究和学习中沉淀的小思考。",
+    zh: "在 AI 产品实践、用户研究和持续学习中沉淀的一些思考。",
   },
   "notes.productNote": { en: "Product Note", zh: "产品笔记" },
   "notes.readReflection": { en: "Read reflection ↓", zh: "阅读思考 ↓" },

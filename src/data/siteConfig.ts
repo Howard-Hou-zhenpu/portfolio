@@ -59,7 +59,7 @@ export const siteConfig: SiteConfig = {
     ],
     identityTagsZh: [
       "AI 产品构建者",
-      "全球增长探索者",
+      "出海增长探索者",
       "用户研究驱动",
     ],
     buttons: [
@@ -82,7 +82,7 @@ export const siteConfig: SiteConfig = {
     ctaEn:
       "I'm looking for opportunities in AI Product, AI Global Growth, and Product Operations. Let's talk.",
     ctaZh:
-      "我正在寻找 AI 产品、AI 出海增长和产品运营方向的机会，欢迎交流。",
+      "我正在寻找 AI 产品、AI 出海增长和产品运营方向的机会，欢迎联系。",
     email: "zhenpu_hou@foxmail.com",
     github: "https://github.com/howard-hou-zhenpu",
     resumeLink: "/resume/zhenpu-hou-resume.pdf",

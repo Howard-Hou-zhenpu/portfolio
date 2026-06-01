@@ -27,7 +27,7 @@ export const brandWorks: BrandWork[] = [
   {
     id: "hotan-feast",
     titleEn: "Hotan Feast: Local Culture × Brand Strategy",
-    titleZh: "和田宴",
+    titleZh: "和田宴：地方文化 × 品牌策略",
     role: "Marketing & Brand Lead",
     highlight:
       "Full brand strategy from market research to integrated marketing plan, connecting Xinjiang cuisine with cultural tourism.",
@@ -65,7 +65,7 @@ export const brandWorks: BrandWork[] = [
   {
     id: "taipo-jiafang",
     titleEn: "Taipo Jiafang: Maternal & Infant Brand Upgrade",
-    titleZh: "太婆家方",
+    titleZh: "太婆家方：母婴品牌升级",
     role: "Brand Strategist",
     highlight:
       "Consumer behavior analysis, STP strategy, and 5P framework for a maternal & infant brand upgrade.",
@@ -84,7 +84,7 @@ export const brandWorks: BrandWork[] = [
   {
     id: "huizifang",
     titleEn: "Huizifang: Anhui Cuisine Brand Repositioning",
-    titleZh: "徽滋坊",
+    titleZh: "徽滋坊：徽菜品牌重定位",
     role: "Brand Strategist",
     highlight:
       "Brand resonance model, cultural storytelling, and experiential marketing for an Anhui cuisine brand.",

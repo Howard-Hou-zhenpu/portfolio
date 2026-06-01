@@ -6,7 +6,7 @@ import { ToolItem } from "./ToolItem";
 import { useLang } from "../../i18n/LangContext";
 
 export function ToolkitSection() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <Section id="toolkit" bg="canvas">
       <SectionTitle
@@ -20,7 +20,7 @@ export function ToolkitSection() {
         <div className="mb-20">
           <div className="flex items-baseline gap-3 mb-6">
             <span className="font-mono text-[10px] tracking-widish text-muted uppercase">
-              Layer 01
+              {lang === "zh" ? "01" : "Layer 01"}
             </span>
             <span className="font-serif italic text-base text-ink-soft">
               {t("toolkit.methodsLabel")}
@@ -39,7 +39,7 @@ export function ToolkitSection() {
         <div>
           <div className="flex items-baseline gap-3 mb-5">
             <span className="font-mono text-[10px] tracking-widish text-muted uppercase">
-              Layer 02
+              {lang === "zh" ? "02" : "Layer 02"}
             </span>
             <span className="font-serif italic text-base text-ink-soft">
               {t("toolkit.toolsLabel")}
