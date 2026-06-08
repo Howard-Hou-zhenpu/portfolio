@@ -17,11 +17,9 @@ interface AskContent {
   sectionEyebrow: string;
   sectionTitle: string;
   subtitle: string;
-  smallLabel: string;
   defaultMessage: string;
   pickPrompt: string;
   assistantTag: string;
-  footerNote: string;
   qa: QA[];
 }
 
@@ -31,12 +29,10 @@ const askContent: { en: AskContent; zh: AskContent } = {
     sectionTitle: "Ask Zhenpu",
     subtitle:
       "Not sure where to start? Ask about my projects, AI product experience, growth work, research background, or internship direction.",
-    smallLabel: "Portfolio Assistant · Based on real projects and resume",
     defaultMessage:
       "Hi, I'm a small interactive layer of Zhenpu's portfolio. I can help you quickly understand his projects, AI product experience, growth work, research background, and career direction.",
     pickPrompt: "Pick a question",
     assistantTag: "Portfolio Assistant",
-    footerNote: "This is a guided Q&A layer, not a general chatbot.",
     qa: [
       {
         question: "What roles are you looking for?",
@@ -80,12 +76,10 @@ const askContent: { en: AskContent; zh: AskContent } = {
     sectionTitle: "Ask Zhenpu｜和我的作品集对话",
     subtitle:
       "不知道从哪里开始看？你可以快速了解我的项目、AI 产品经历、增长实践、研究背景和实习方向。",
-    smallLabel: "作品集助手 · 基于真实项目与简历信息",
     defaultMessage:
       "你好，我是这个作品集里的一个轻量交互层。你可以通过几个问题，快速了解振埔的项目经历、AI 产品实践、增长工作、用户研究背景和职业方向。",
     pickPrompt: "选一个问题开始",
     assistantTag: "作品集助手",
-    footerNote: "这是一个引导式问答模块，不是通用聊天机器人。",
     qa: [
       {
         question: "你在寻找什么方向的机会？",
@@ -149,9 +143,6 @@ export function AskZhenpu() {
           </h2>
           <p className="mt-4 text-[13.5px] text-ink-soft leading-relaxed max-w-prose">
             {c.subtitle}
-          </p>
-          <p className="mt-3 font-mono text-[10.5px] tracking-widish text-muted uppercase">
-            {c.smallLabel}
           </p>
         </div>
 
@@ -223,10 +214,6 @@ export function AskZhenpu() {
                 {activeAnswer}
               </p>
             </div>
-
-            <p className="mt-4 font-mono text-[10px] tracking-widish text-muted uppercase">
-              {c.footerNote}
-            </p>
           </div>
         </div>
       </ScrollReveal>
