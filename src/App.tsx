@@ -2,6 +2,7 @@ import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
 import { LangHint } from "./components/layout/LangHint";
 import { Hero } from "./components/hero/Hero";
+import { AskZhenpu } from "./components/ask-zhenpu/AskZhenpu";
 import { PathSection } from "./components/path/PathSection";
 import { ProjectSection } from "./components/projects/ProjectSection";
 import { ToolkitSection } from "./components/toolkit/ToolkitSection";
@@ -17,6 +18,7 @@ export default function App() {
       <LangHint />
       <main>
         <Hero />
+        <AskZhenpu />
         <PathSection />
         <ProjectSection />
         <ToolkitSection />

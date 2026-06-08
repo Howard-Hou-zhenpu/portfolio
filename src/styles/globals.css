@@ -152,3 +152,16 @@ html[lang="zh-CN"] i {
 html[lang="zh-CN"] .zh-prewrap {
   white-space: pre-line;
 }
+
+/* Quiet fade-in used by AskZhenpu when a new answer is selected or when
+   the language toggle swaps the answer text. */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
