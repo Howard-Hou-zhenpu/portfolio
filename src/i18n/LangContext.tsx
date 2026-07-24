@@ -91,6 +91,11 @@ export function LangProvider({ children }: LangProviderProps) {
   useEffect(() => {
     if (typeof document !== "undefined") {
       document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+      // Keep the browser tab title in sync with the active language.
+      document.title =
+        lang === "zh"
+          ? "侯振埔 — AI 产品构建者"
+          : "Zhenpu Hou — AI Product Builder";
     }
   }, [lang]);
 
