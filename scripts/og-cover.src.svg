@@ -1,0 +1,35 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: warm paper -->
+  <rect width="1200" height="630" fill="#FAF8F4"/>
+
+  <!-- Subtle inner frame -->
+  <rect x="48" y="48" width="1104" height="534" fill="none" stroke="#E5DFD4" stroke-width="1.5"/>
+
+  <!-- Top-left index / portfolio label -->
+  <text x="88" y="112" font-family="'JetBrains Mono', monospace" font-size="17" letter-spacing="3" fill="#7A736A">PORTFOLIO</text>
+  <line x1="88" y1="130" x2="200" y2="130" stroke="#E5DFD4" stroke-width="1.5"/>
+
+  <!-- Top-right lang mark -->
+  <text x="1112" y="112" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="17" letter-spacing="3" fill="#7A736A">ZH / EN</text>
+
+  <!-- Name (serif, bilingual) -->
+  <text x="88" y="228" font-family="'Playfair Display', Georgia, serif" font-size="72" font-weight="700" fill="#1F1D1A">Zhenpu Hou</text>
+  <text x="88" y="278" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" fill="#7A736A">侯振埔</text>
+
+  <!-- Tagline (serif, the hero line) -->
+  <text x="88" y="372" font-family="'Playfair Display', Georgia, serif" font-size="40" font-weight="400" fill="#3A362F">I build AI products from user needs,</text>
+  <text x="88" y="424" font-family="'Playfair Display', Georgia, serif" font-size="40" font-weight="400" fill="#3A362F">market signals, and messy decisions.</text>
+
+  <!-- Divider above tags -->
+  <line x1="88" y1="492" x2="1112" y2="492" stroke="#E5DFD4" stroke-width="1.5"/>
+
+  <!-- Identity tags (mono) -->
+  <text x="88" y="536" font-family="'JetBrains Mono', monospace" font-size="19" letter-spacing="2" fill="#A65A3F">AI PRODUCT</text>
+  <text x="322" y="536" font-family="'JetBrains Mono', monospace" font-size="19" letter-spacing="2" fill="#7A736A">·</text>
+  <text x="352" y="536" font-family="'JetBrains Mono', monospace" font-size="19" letter-spacing="2" fill="#A65A3F">GLOBAL GROWTH</text>
+  <text x="648" y="536" font-family="'JetBrains Mono', monospace" font-size="19" letter-spacing="2" fill="#7A736A">·</text>
+  <text x="678" y="536" font-family="'JetBrains Mono', monospace" font-size="19" letter-spacing="2" fill="#A65A3F">PMM</text>
+
+  <!-- Right-side quiet detail -->
+  <text x="1112" y="536" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="15" letter-spacing="2" fill="#A39B91">OPEN TO WORK</text>
+</svg>
