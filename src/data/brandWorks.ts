@@ -1,9 +1,3 @@
-export interface BrandGalleryItem {
-  src: string;
-  alt: string;
-  caption?: string;
-}
-
 export interface BrandWork {
   id: string;
   titleEn: string;
@@ -15,7 +9,6 @@ export interface BrandWork {
   cardShort: string;
   cover?: string | null;
   coverAlt?: string;
-  gallery?: BrandGalleryItem[];
   visualType?: "image" | "placeholder" | "diagram";
   award?: string;
   roleZh?: string;
@@ -43,19 +36,7 @@ export const brandWorks: BrandWork[] = [
     cover: "/images/projects/hotan-feast/brand-cover.png",
     coverAlt: "Hotan Feast local culture dining brand visual",
     visualType: "image",
-    gallery: [
-      {
-        src: "/images/projects/hotan-feast/restaurant-design.png",
-        alt: "Hotan Feast restaurant interior and brand experience design",
-        caption: "Restaurant design and brand experience",
-      },
-      {
-        src: "/images/projects/hotan-feast/ip-characters.png",
-        alt: "Hotan Feast IP characters",
-        caption: "IP characters",
-      },
-    ],
-  
+
     roleZh: "市场与品牌负责人",
     highlightZh:
       "完整的品牌策略，从市场调研到整合营销方案，把新疆美食与文化旅游连起来。",

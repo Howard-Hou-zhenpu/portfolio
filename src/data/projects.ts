@@ -6,12 +6,6 @@ export type ProjectTier =
   | "brand"
   | "archive";
 
-export interface ProjectGalleryItem {
-  src: string;
-  alt: string;
-  caption?: string;
-}
-
 export interface Project {
   id: string;
   titleEn: string;
@@ -33,7 +27,6 @@ export interface Project {
   featureHighlight?: { label: string; text: string };
   cover?: string | null;
   coverAlt?: string;
-  gallery?: ProjectGalleryItem[];
   visualType?: "image" | "placeholder" | "diagram";
   award?: string;
   businessValue?: string;
@@ -96,28 +89,6 @@ export const projects: Project[] = [
     cover: "/images/projects/yaobai-zhi/cover.png",
     coverAlt: "Yaobai Zhi AI decision coach product interface",
     visualType: "image",
-    gallery: [
-      {
-        src: "/images/projects/yaobai-zhi/dashboard.png",
-        alt: "Yaobai Zhi dashboard with decision overview",
-        caption: "Dashboard — decision overview and recent activity",
-      },
-      {
-        src: "/images/projects/yaobai-zhi/ai-analysis.png",
-        alt: "AI option analysis and historical pattern view",
-        caption: "AI option analysis with historical pattern recognition",
-      },
-      {
-        src: "/images/projects/yaobai-zhi/review-center.png",
-        alt: "Review center for past decisions",
-        caption: "Review center — revisit past decisions, extract principles",
-      },
-      {
-        src: "/images/projects/yaobai-zhi/personality-report.png",
-        alt: "Decision personality report",
-        caption: "Decision personality report",
-      },
-    ],
     cardShort:
       "Personal AI decision coach. Built from 0 to 1 with vibe coding. 80 records, 20 users, 3 iterations.",
     detailLong:
@@ -193,7 +164,6 @@ export const projects: Project[] = [
     coverAlt:
       "Abstract workflow diagram for AI smart badge product process",
     visualType: "diagram",
-    gallery: [],
     featureHighlight: {
       label: "Shipped Feature",
       text: "Golden Script — auto-extracts reusable scripts from top-performing sales and service recordings into a searchable team library.",
@@ -276,13 +246,6 @@ export const projects: Project[] = [
     coverAlt:
       "AI 内容生产与跨境增长工作流 — 商品输入、AI 内容生成、本地化适配、内容落地四步",
     visualType: "diagram",
-    gallery: [
-      {
-        src: "/images/projects/danxiansen/localization.png",
-        alt: "HK/Macau localization examples",
-        caption: "HK/Macau localization — public/redacted samples only",
-      },
-    ],
     cardShort:
       "AI content workflow for cross-border e-commerce. Cut production from 4h to 30min. 500+ assets/month, 3 brands, 5% sales lift.",
     detailLong:
@@ -358,18 +321,6 @@ export const projects: Project[] = [
     coverAlt:
       "Research model and user segmentation for GAI adoption study",
     visualType: "image",
-    gallery: [
-      {
-        src: "/images/projects/gai-research/wordcloud.png",
-        alt: "Word cloud from text mining of GAI user comments",
-        caption: "Text mining — word cloud (10,000+ comments)",
-      },
-      {
-        src: "/images/projects/gai-research/user-segments.png",
-        alt: "GAI user segmentation chart",
-        caption: "5 core + 4 potential user segments",
-      },
-    ],
     cardShort:
       "National First Prize. 10,000+ comments, 532 surveys, 15 interviews. Identified GAI user segments, adoption barriers, and market opportunities.",
     detailLong:
