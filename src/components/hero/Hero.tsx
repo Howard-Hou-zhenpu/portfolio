@@ -24,9 +24,9 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="bg-canvas px-6 md:px-10 pt-20 md:pt-28 pb-20 md:pb-32"
+      className="relative overflow-hidden bg-canvas px-6 md:px-10 pt-20 md:pt-28 pb-20 md:pb-32"
     >
-      <div className="max-w-content mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-end">
+      <div className="relative z-10 max-w-content mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-end">
         <div className="lg:col-span-7">
           <div className="flex items-center gap-3 mb-8">
             <span className="font-mono text-[11px] tracking-widish text-muted">

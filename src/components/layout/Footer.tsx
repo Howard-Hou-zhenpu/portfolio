@@ -18,6 +18,28 @@ export function Footer() {
         </div>
         <div className="text-[12px] text-muted font-sans">{tagline}</div>
       </div>
+      <div className="max-w-content mx-auto px-6 md:px-10 pb-8 -mt-4">
+        <p className="font-mono text-[10px] tracking-wide text-muted-soft">
+          {lang === "zh" ? "动画" : "Animations"}:{" "}
+          <a
+            href="https://github.com/xxoogreymon-prog/SKILL-rainCurtain-branch-swallow"
+            target="_blank"
+            rel="noopener noreferrer license"
+            className="underline hover:text-muted"
+          >
+            p5-animation by xxoogreymon
+          </a>{" "}
+          ·{" "}
+          <a
+            href="https://creativecommons.org/licenses/by-nc/4.0/"
+            target="_blank"
+            rel="noopener noreferrer license"
+            className="underline hover:text-muted"
+          >
+            CC BY-NC 4.0
+          </a>
+        </p>
+      </div>
     </footer>
   );
 }

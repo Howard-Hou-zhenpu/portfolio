@@ -10,6 +10,8 @@ import { BrandLabSection } from "./components/brand-lab/BrandLabSection";
 import { WhyGlobalGrowth } from "./components/why-global/WhyGlobalGrowth";
 import { NotesSection } from "./components/notes/NotesSection";
 import { Contact } from "./components/contact/Contact";
+import { RainCurtainBand } from "./components/p5/RainCurtainBand";
+import { SwallowBand } from "./components/p5/SwallowBand";
 
 export default function App() {
   return (
@@ -18,12 +20,14 @@ export default function App() {
       <LangHint />
       <main>
         <Hero />
+        <SwallowBand />
         <AskZhenpu />
         <PathSection />
         <ProjectSection />
         <ToolkitSection />
         <BrandLabSection />
         <WhyGlobalGrowth />
+        <RainCurtainBand />
         <NotesSection />
         <Contact />
       </main>
